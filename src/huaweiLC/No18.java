@@ -13,7 +13,7 @@ public class No18 {
         HashMap<Integer, List<int[]>> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             for (int j = i+1; j < nums.length; j++) {
-                if(!map.containsKey(nums[i]+nums[j])) map.put(nums[i]+nums[j], new ArrayList<>(new int[]{i, j}));
+                if(!map.containsKey(nums[i]+nums[j])) map.put(nums[i]+nums[j], new ArrayList<>());
                 else {
                     List<int[]> temp = map.get(nums[i]+nums[j]);
                     temp.add(new int[]{i, j});
@@ -29,13 +29,20 @@ public class No18 {
                 if(map.containsKey(key)) {
                     List<int[]> list = map.get(key);
                     for (int[] l : list){
-                        res.add(new ArrayList<>(nums[i], nums[j], nums[l[0]], nums[l[1]]));
+                        res.add(new ArrayList<>(Arrays.asList(nums[i], nums[j], nums[l[0]], nums[l[1]])));
                     }
                 }
             }
         }
+        return res;
 
     }
-}
 
+    public static void main(String[] args) {
+        No18 no18 = new No18();
+        System.out.println(no18.fourSum(new int[]{1, 0, -1, 0, -2, 2}, 0));
+    }
+}
  */
+
+
