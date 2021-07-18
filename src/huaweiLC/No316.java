@@ -9,8 +9,11 @@ import java.util.Stack;
  * @author : 张严
  * @date : 2021-06-15 17:22
  **/
-/*
+
+//316、321、402、1081
+
 public class No316 {
+    //注意：重点整理此类题型
     public String removeDuplicateLetters(String s) {
         Stack<Character> stack = new Stack<>();
 
@@ -24,8 +27,13 @@ public class No316 {
                 while (!stack.isEmpty() && s.charAt(i) < stack.peek() && alpha[stack.peek() - 'a']>0) stack.pop();
                 stack.push(s.charAt(i));
             }
+            alpha[s.charAt(i)-'a']--;
         }
-        return stack.toString();
+        StringBuilder sb = new StringBuilder();
+        for (char c: stack){
+            sb.append(c);
+        }
+        return sb.toString();
     }
 
     public static void main(String[] args) {
@@ -34,4 +42,4 @@ public class No316 {
     }
 }
 
- */
+
